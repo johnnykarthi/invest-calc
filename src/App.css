@@ -1,38 +1,240 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&family=Roboto&display=swap');
+
+html{
+    scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header{
+    font-size: 2rem;
+    text-align: center;
+    color: #420041;
+    padding: 2rem;
+}
+
+
+.main-box{
+    padding: 2rem ;
+    border: 1px solid #828282;
+    border-radius: 1rem;
+}
+
+.switch-button-box{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.switch-button{
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: #4e4e4e;
+    cursor: pointer;
+    margin-right: 1rem;
+    padding: .5rem 1.5rem;
+}
+
+.switch-button.active{
+    color: #00420c;
+    background-color: #e4ffe9;
+    padding: .5rem 1.5rem;
+    border-radius: 2rem;
+    
+}
+
+.switch-button:hover{
+    color: rgb(66, 0, 65);
+}
+
+.input-box{
+    padding: 1rem;
+}
+
+.form-input-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .4rem;
+    
+}
+
+.input-form-box-model{
+    background-color: #e4ffe9;
+    padding: .4rem 0.6rem;
+}
+
+.form-input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: end;
+    font-weight: 500;
+    width: 5rem;
+    color: #00a11e;
+    padding-right: .2rem;
+}
+
+.symbol{
+    font-weight: 500;
+    color: #00a11e;
+    
+}
+
+.range-selector{
+    padding: 1rem 0;
+}
+
+.input-group-box{
+    padding: 1rem 0;
+}
+
+.final-value{
+
+    padding: 2rem .5rem 0;
+}
+
+.legend-box > small{
+    font-size: 12px;
+    color: #868686;
+    margin-right: 10px;
+}
+
+.legend-box{
+    padding-top: 1rem;
+}
+
+.legend-1{
+    display:inline-block;
+    width: 16px;
+    height: 7px;
+    background-color:#efefef;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.legend-2{
+    display:inline-block;
+    width: 16px;
+    height: 7px;
+    background-color: lightgreen;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.piechart{
+    padding: 1rem;
+}
+
+
+/* Range Selector */
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #ededed;
+    border-radius: 0.5rem;
+    height: 3.5px;
   }
-}
+  
+  /* slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -10.25px; /* Centers thumb on the track */
+    background-color: #41d87b;
+    border-radius: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 3px solid #41d87b;
+    outline-offset: 0.125rem;
+  }
+  
+  /*********** Firefox styles ***********/
+  /* slider track */
+  input[type="range"]::-moz-range-track {
+    background-color: #ededed;
+    border-radius: 0.5rem;
+    height: 3.5px;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #41d87b;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  input[type="range"]:focus::-moz-range-thumb{
+    outline: 3px solid #41d87b;
+    outline-offset: 0.125rem;
+  }
+
+
+
+
+
+  @media only screen and (max-width: 600px) {
+    .main-box{
+        padding: 1rem ;
+        border: none;
+    }
+
+    .header{
+        font-size: 1.7rem;
+        padding: 2rem ;
+    }
+
+    .switch-button-box{
+        padding:1rem 0;
+        
+    }
+
+    .piechart-box{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .input-box{
+        padding: 0rem;
+    }
+    
+    .final-value{
+        padding: 2rem .5rem 2rem;
+    }
+
+   .form-input{
+    width: 3.2rem;
+   }
+   .table-box{
+    padding: 2rem 0 1rem;
+   }
+  }
