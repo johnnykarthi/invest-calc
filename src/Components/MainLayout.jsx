@@ -1,28 +1,15 @@
-import React, { useState } from 'react'
+
 import MainBox from './MainBox'
 import TableBox from './TableBox'
 import Header from './Header'
+import {useSelector} from 'react-redux'
 
 export default function MainLayout() {
-    const [month, setMonth] = useState(1000);
-    const [rate, setRate] = useState(12);
-    const [duration, setDuration] = useState(12);
 
+    const month = useSelector((state)=> state.data.amount);
+    const rate = useSelector((state)=> state.data.rate);
+    const duration = useSelector((state)=> state.data.duration);
     let ans = [];
-
-
-    const monthSetted = (value)=>{
-        setMonth(value);
-    }
-
-    const rateSetted = (value)=>{
-        setRate(value);
-    }
-
-    const durationSetted = (value)=>{
-        setDuration(value);
-    }
-
     let rateCon = (rate / 12) / 100;
 
     for (let i = 1; i <= 40; i++) {
@@ -38,18 +25,17 @@ export default function MainLayout() {
         }
         ans = [...ans, tempValue];
     }
-
-
+   
     return (
         <div className="container">
             <Header/>     
             <div className="row">
                 <div className="col-md-7">
-                    <MainBox monthSetted={monthSetted} rateSetted={rateSetted} durationSetted={durationSetted} month={month} rate={rate} duration={duration} ArrayValue={ans[duration-1]}/>
+                    <MainBox  ArrayValue={ans[duration-1]}/>
                 </div>
                 <div className="col-md-5">
                     <div className="table-box">
-                       <TableBox Array={ans} duration={duration}/>
+                       <TableBox Array={ans} />
                     </div>
                 </div>
             </div>
